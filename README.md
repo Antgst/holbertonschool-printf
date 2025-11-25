@@ -40,7 +40,7 @@
 * print_int.c
 * print_binary.c
 * get_print_func.c
-* printf.c
+* _printf.c
 * man_3_printf
 
 ## Flowchart project
