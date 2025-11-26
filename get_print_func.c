@@ -9,7 +9,8 @@
 
 int (*get_print_func(char c))(va_list)
 {
-    print_t types[] = {
+    print_t types[] = 
+    {
         {'c', print_char},
         {'s', print_string},
         {'\0', NULL}
