@@ -8,7 +8,7 @@
  * or -1 if format is NULL or an error occurs
  */
 
- int_printf(const char *format, ...)
+ int _printf(const char *format, ...)
  {
     va_list args;
     int i = 0;
