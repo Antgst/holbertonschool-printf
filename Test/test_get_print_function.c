@@ -14,14 +14,14 @@ int (*get_print_func(char s))(va_list)
 		{'d', print_int},
 		{'i', print_int},
 		{'b', print_binary},
-		{0, NULL}
+		{'\0', NULL}
 	};
 
 	int i = 0;
 
-	while (types[i].t != 0)
+	while (types[i].c)
 	{
-		if (types[i].t == s)
+		if (types[i].c == c)
 			return (types[i].f);
 		i++;
 	}
