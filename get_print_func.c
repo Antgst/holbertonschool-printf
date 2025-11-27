@@ -15,7 +15,7 @@ int (*get_print_func(char c))(va_list)
         {'s', print_string},
         {'d', print_int},
 		{'i', print_int},
-        {'b', print binary},
+        {'b', print_binary},
         {'\0', NULL}
     };
     int i = 0;
