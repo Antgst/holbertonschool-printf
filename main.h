@@ -22,7 +22,8 @@ int _printf(const char *format, ...);
 int print_char(va_list args);
 int print_string(va_list args);
 int print_int(va_list args);
+int print_unsigned(va_list args);
 int print_binary(va_list args);
-int (*get_print_func(char c))(va_list);
+int get_print_func(va_list args);
 
 #endif
