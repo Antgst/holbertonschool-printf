@@ -44,7 +44,7 @@ while (format[i] != '\0')
         }
         else
         {
-            f = get_print_func(format[i]);
+            f = get_print_func(va_list args);
             if (f != NULL)
             {
                 count += f(args);

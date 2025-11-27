@@ -7,7 +7,7 @@
  * Return: pointer to the corresponding function, or NULL if not found
  */
 
-int (*get_print_func(char c))(va_list)
+int get_print_func(char c)(va_list)
 {
     print_t types[] =
     {

@@ -14,7 +14,7 @@
 typedef struct print_s
 {
 	char spec;
-	int (*f)(va_list);
+	int (*f)(va_list args);
 } print_t;
 
 int _putchar(char c);
