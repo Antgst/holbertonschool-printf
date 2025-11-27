@@ -1,15 +1,37 @@
 #include "main.h"
 
 /**
- * _printf - produces output according to a format
- * @format: a character string with format specifiers
- * 
- * Return: number of characters printed (excluding the null byte)
- * or -1 if format is NULL or an error occurs
+ * get_print_func - selects the correct function to handle a specifier
+ * @c: the format specifier character (c, s, d, i, b...)
+ *
+ * Return: pointer to the corresponding function, or NULL if not found
  */
 
- int _printf(const char *format, ...)
- {
+int _printf(const char *format, ... )
+{
+    va_list args;
+    int i = 0, j, count = 0;
 
- }
- 
+    spec_t types[] =
+    {
+        {'c', print_char},
+        {'s', print_string},
+        {'d', print_int},
+        {'%', print_percent},
+		{'i', print_int},
+        {'\0', NULL}
+    };
+
+    if (!format)
+        return (-1);
+
+    va_start(args, format)
+
+
+
+
+
+
+
+
+}
