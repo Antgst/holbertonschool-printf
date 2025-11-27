@@ -1,18 +1,11 @@
 #include "main.h"
 
 /**
-<<<<<<< HEAD
  * get_print_func - selects the correct function to handle a specifier
  * @c: the format specifier character (c, s, d, i, b...)
  *
  * Return: pointer to the corresponding function, or NULL if not found
  */
-=======
- 
-get_print_func - selects the correct function to handle a specifier
-@c: the format specifier character (c, s, d, i, b...)*
-Return: pointer to the corresponding function, or NULL if not found*/
->>>>>>> main
 
 int _printf(const char *format, ... )
 {
@@ -21,37 +14,17 @@ int _printf(const char *format, ... )
 
     spec_t types[] =
     {
-<<<<<<< HEAD
         {'c', print_char},
         {'s', print_string},
         {'d', print_int},
         {'%', print_percent},
 		{'i', print_int},
-=======
-        {'c', print_char}, 
-        {'s', print_string},
-        {'d', print_int},
-        {'%', print_percent},
-        {'i', print_int},
->>>>>>> main
         {'\0', NULL}
     };
 
     if (!format)
         return (-1);
 
-<<<<<<< HEAD
-    va_start(args, format)
-
-
-
-
-
-
-
-
-}
-=======
     va_start(args, format);
     for (i = 0; format[i] != '\0'; i++)
     {
@@ -71,4 +44,3 @@ int _printf(const char *format, ... )
     return (count);
 
 }
->>>>>>> main
