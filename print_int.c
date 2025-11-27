@@ -26,7 +26,7 @@ int print_int(va_list args)
 
 	/* Appel récursif pour imprimer chiffre par chiffre */
 	if (num / 10)
-		count += print_number(num / 10);
+		count += print_unsigned(num / 10);
 
 	/* Afficher le dernier chiffre */
 	_putchar((num % 10) + '0');
