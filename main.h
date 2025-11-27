@@ -15,7 +15,7 @@ typedef struct print_s
 {
 	char spec;
 	int (*f)(va_list args);
-} print_t;
+} spec_t;
 
 int _putchar(char c);
 int _printf(const char *format, ...);
@@ -23,5 +23,6 @@ int print_char(va_list args);
 int print_string(va_list args);
 int print_int(va_list args);
 int get_print_func(va_list args);
-
+int print_percent(va_list args);
+int print_int_recursive(unsigned int number);
 #endif
