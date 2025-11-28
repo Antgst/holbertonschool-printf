@@ -18,7 +18,7 @@
 | `%c`        | Prints a single character            |
 | `%s`        | Prints a string                      |
 | `%d` / `%i` | Prints a signed integer in base 10   |
-| '%%'        | Prints  percent '%'                  |
+| '%%'        | Prints percent '%'                   |
 ```
 
 
@@ -180,6 +180,7 @@ Antoine Gousset :
 
 Djibril Niang :
 [Markdown Live Preview](https://markdownlivepreview.com/).
+
 
 
 
