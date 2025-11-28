@@ -1,175 +1,313 @@
-# ✅ _printf Project — Holberton School
+# _printf – Custom printf implementation (Holberton School project)
 
-**📌 DESCRIPTION**
+## 📌 Description
 
-* The _printf project aims to recreate a simplified version of the standard C library function printf.*
-* The goals of this project are to practice:*
-* Handling strings and formatted output*
-* Using variadic functions (va_list)*
-* Modular program design in C*
-* Clean architecture and documentation*
-* Teamwork and Git versioning*
-* This implementation supports multiple format, each handled by a dedicated function.*
+Custom re-implementation of the C standard library `printf` function, written from scratch without using the standard I/O functions (`printf`, `puts`, etc.).  
 
-**🏗️ Supported Format Specifiers**  
-```
-| Specifier   | Description                          |
-| ----------- | ------------------------------------ |
-| `%c`        | Prints a single character            |
-| `%s`        | Prints a string                      |
-| `%d` / `%i` | Prints a signed integer in base 10   |
-| '%%'        | Prints percent '%'                   |
-```
+Developed as part of the Holberton School low-level programming curriculum.
 
+`_printf` prints formatted output to the standard output (`stdout`) using only the low-level `write` system call.  
+It uses variadic arguments to handle a variable number of parameters and mimics the behavior of `printf` for a subset of format specifiers.
 
-## 
-**📁 Project Structure**
-###
+Repository name:
 
-* docs/
-* _printf.c
-* _putchar.c
-* main.h
-* man_3_printf.3
-* print_char.c
-* print_int.c
-* print_percent.c
-* print_string.c
-* .gitignore
-* README.md
+    holbertonschool-printf
 
-## Flowchart project
+---
 
-![This is an alt text.](docs/flowchart.png)
+## 📐 Prototype
 
+    int _printf(const char *format, ...);
 
-## 🧩 File Descriptions
-#### ✅ _printf.c
+---
 
-* Main entry point 
-* Iterates through the format string
-* Detects % characters
-* Calls the appropriate function
-* Returns the total printed character count
+## 🧩 How it works
 
-#### ✅ print_char.c
+`_printf` takes:
 
-* Retrieves a character from va_list
-* Prints it using _putchar
-* Returns 1
+* `const char *format` – the format string that contains:
+    * normal characters, printed as-is
+    * conversion specifiers introduced by `%`
+* `...` – a variable number of arguments, each consumed by a conversion specifier in the format string.
 
-#### ✅ print_string.c
+Behavior (simplified):
 
-* Prints a string character by character
-* Handles NULL by printing (null)
+1. If `format` is `NULL`, `_printf` returns `-1`.
+2. The function iterates over `format` character by character.
+3. If the current character is not `%`, it is printed directly.
+4. If the current character is `%`, the next character determines the type of data to print (specifier).
+5. For every valid specifier:
+    * The corresponding argument is fetched from the `va_list`.
+    * A dedicated handler function prints it.
+    * The total count of printed characters is updated.
+6. At the end, `_printf` returns the total number of characters printed, or `-1` on error.
 
-#### ✅ print_int.c
+---
 
-* Converts a signed integer to decimal text
-* Handles negative values
-* Prints digits one by one
+## 🏗️ Supported format specifiers
 
-#### ✅ print_percent.c
+### List
 
-* A direct call to _putchar('%') to print the character to standard output.
-* Puts '%' sign before character or int
+At the current stage, `_printf` supports:
 
-#### ✅ _putchar.c
+* `%c` – Print a single character  
+* `%s` – Print a string  
+* `%%` – Print a literal percent sign  
+* `%d` – Print a signed decimal integer  
+* `%i` – Print a signed decimal integer  
 
-* Wrapper around the write system call
-* Prints a single character
-* Used by all print handlers
+For these supported specifiers, `_printf` aims to mimic the behavior of the standard `printf` as closely as possible.
 
-#### ✅ main.h
+(Additional specifiers may be implemented later in the project by completing the advanced tasks.)
 
-* Contains all prototypes, includes, and data structures
-* Central header for the entire project
+### Summary table
 
-#### ✅ man_3_printf.3
+| Specifier | Description            | Example call                               | Output        |
+|----------:|------------------------|--------------------------------------------|---------------|
+| `%c`      | Character              | `_printf("Char: %c\n", 'A');`              | `Char: A`     |
+| `%s`      | String                 | `_printf("Str: %s\n", "Hello");`           | `Str: Hello`  |
+| `%%`      | Literal percent sign   | `_printf("Percent: %%\n");`                | `Percent: %`  |
+| `%d`      | Signed decimal integer | `_printf("Num: %d\n", 1024);`              | `Num: 1024`   |
+| `%i`      | Signed decimal integer | `_printf("Num: %i\n", -42);`               | `Num: -42`    |
 
-* Manual page for the custom function _printf
-* Describes usage, behavior, and supported formats
+---
 
-## ⚙️ Compilation
+## 🎯 Return value
 
-To compile all source files:
+* On success: `_printf` returns the **total number of characters printed** (excluding the terminating null byte).
+* On failure: `_printf` returns **`-1`**.
 
-        $ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 -Wno-format *.c
+### Examples (return values)
 
+    int len;
 
-✔ Follows Holberton requirements \
-✔ Must compile with no warnings
+    len = _printf("Hello\n");
+    /* Printed: "Hello\n" → len == 6 */
 
-Run the program:
+    len = _printf("Value: %d\n", 98);
+    /* Printed: "Value: 98\n" → len equals the number of printed characters */
 
-        ./a.out
+    len = _printf("Char: %c, Str: %s\n", 'A', "Hi");
+    /* Printed: "Char: A, Str: Hi\n" → len == length of that full line */
 
-✅ Usage Example
-```
-#include "main.h"
+Comparison with the standard `printf`:
 
-int main(void)
-{
-    _printf("Display a percent sign: %%\n");
-    _printf("Success rate: 100%% guaranteed!\n");
+    int len1 = _printf("Custom: %d\n", 42);
+    int len2 = printf("Standard: %d\n", 42);
+    /* For supported specifiers, len1 and len2 should usually match */
 
-    return (0);
-}
-
-output:
-
-Display a percent sign: %
-Success rate: 100% guaranteed!
-  
-```
-
-Return value:
-
-* display a percent '%' sign on the sentence: 100% guaranteed!
+---
 
 ## 🧰 Requirements
 
-* OS: Ubuntu 20.04 LTS
-* Compiler:  $ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 -Wno-format *.c
-* Allowed: va_args
-* Code must be readable and understandable by the peers
+* **Operating system**
+    * Ubuntu 20.04 LTS
 
-## 📖 Man Page Summary
+* **Compiler**
+    * `gcc` with the following flags:
+        * `-Wall`
+        * `-Werror`
+        * `-Wextra`
+        * `-pedantic`
+        * `-std=gnu89`
 
-**Name**
+* **Allowed functions** (according to the project statement)
+    * `write`
+    * `malloc`
+    * `free`
+    * `va_start`
+    * `va_end`
+    * `va_copy`
+    * `va_arg`
 
-        _printf — formatted output function
+Any other standard library functions should not be used unless explicitly allowed by the project.
 
+---
 
-**Prototype**
+## ⚙️ Compilation
 
-        int _printf(const char *format, ...);
+Basic compilation command:
 
+    gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c
 
-**Description**
+With a custom `main.c` used for testing:
 
-Prints formatted output based on the supported format specifiers.
-Return Value
-Returns the number of printed characters.
-Returns -1 on error.
+    gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c main.c -o printf_test
+    ./printf_test
 
-**Supported Specifiers**
+---
 
-%c, %s, %d, %i, %
+## 🛠️ Usage
 
-## Authors
+### Simple example
 
-Antoine Gousset : 
-[GITHUB](https://github.com/Antgst/).
+    #include "main.h"
 
-Djibril Niang :
-[GITHUB](https://github.com/Tamsir-ui).
+    int main(void)
+    {
+        _printf("Hello, Holberton!\n");
+        _printf("Character: %c\n", 'A');
+        _printf("String: %s\n", "Sample");
+        _printf("Number: %d\n", 1024);
+        _printf("Percent: %%\n");
+        return (0);
+    }
 
+Compilation and execution:
 
+    gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o printf_demo
+    ./printf_demo
 
+### More examples (per type)
 
+Character:
 
+    _printf("Char: %c\n", 'Z');
+    /* Output: "Char: Z" followed by newline */
 
+String:
 
+    _printf("String: %s\n", "Holberton");
+    /* Output: "String: Holberton" followed by newline */
 
+Percent sign:
 
+    _printf("Show percent: %%\n");
+    /* Output: "Show percent: %" followed by newline */
+
+Signed decimal:
+
+    _printf("Positive: %d\n", 1234);
+    /* Output: "Positive: 1234" followed by newline */
+
+    _printf("Negative: %i\n", -987);
+    /* Output: "Negative: -987" followed by newline */
+
+Mixed:
+
+    _printf("Name: %s, Grade: %d%%\n", "Alice", 95);
+    /* Output: "Name: Alice, Grade: 95%" followed by newline */
+
+---
+
+## 📁 Project files
+
+Example structure:
+
+| File                 | Description                                                |
+|----------------------|----------------------------------------------------        |
+| `docs/flowchart.png` | Flowchart of the `_printf` algorithm                       |
+| `_printf.c`          | Core `_printf` function, parser, and dispatcher            |
+| `_putchar.c`         | Low-level function used by `_printf` and other printing functions  |
+| `main.h`             | Header file with prototypes, macros, and typedefs          |
+| `man_3_printf`       | Custom man page for `_printf`                              |
+| `print_char.c`       | Handler for `%c`                                           |
+| `print_int.c`        | Handler for `%d` / `%i`                                    |
+| `print_percent.c`    | Handler for `%%` (prints a literal `%` character)                                            |
+| `print_string.c`     | Handler for `%s`                                           |
+| `.gitignore`         | Lists files and directories that Git should ignore         |
+| `README.md`         | Project overview and descriptions for the custom `_printf` implementation.|
+---
+
+## 🔁 Flowchart
+
+A high-level flowchart describes the internal logic of `_printf`:
+
+1. Initialize `va_list` and counters.
+2. Check if `format` is `NULL`.  
+   * If `format == NULL`, return `-1`.
+3. Loop through each character of `format`:
+    * If the current character is **not** `%`:
+        * Print it directly.
+        * Increment the characters counter.
+    * If the current character **is** `%`:
+        * Look at the next character.
+        * If it matches a valid specifier (`c`, `s`, `%`, `d`, `i`):
+            * Call the corresponding handler function.
+            * Add the number of printed characters to the counter.
+        * Otherwise (undefined behavior in the standard):
+            * Your implementation may return `-1` or handle it in a custom way.
+4. Call `va_end` on the `va_list`.
+5. Return the total number of printed characters.
+
+If the flowchart is stored as an image, it can be referenced in the README:
+
+    ![Printf flowchart](docs/flowchart.png "High-level _printf flowchart")
+
+---
+
+## 📖 Man page
+
+A custom manual page is provided for `_printf`.
+
+To read it from the project directory:
+
+    man ./man_3_printf
+
+The man page includes:
+
+* Function prototype  
+* Description  
+* List of supported specifiers  
+* Return value  
+* Examples of usage  
+
+This allows `_printf` to be documented similarly to the standard `printf`.
+
+---
+
+## 🧪 Testing
+
+### Betty style (Holberton C coding style)
+
+Check that all `.c` and `.h` files comply with the Betty style:
+
+    betty *.c *.h
+
+### Valgrind (optional, for memory checks)
+
+If dynamic memory is used (e.g. with `malloc`), Valgrind can be used to detect memory leaks:
+
+    valgrind --leak-check=full ./printf_demo
+
+### Manual tests
+
+Example test ideas:
+
+* Empty format string:
+
+      _printf("");
+
+* Format string with no specifiers:
+
+      _printf("Just text, no specifiers\n");
+
+* Multiple specifiers in one call:
+
+      _printf("Char: %c, String: %s, Number: %d\n", 'A', "Holberton", 2025);
+
+* Negative and large integers.
+
+---
+
+## ⚠️ Limitations
+
+This is an educational project and the goal is not to fully reimplement every feature of `printf`.
+
+Current implementation intentionally does **not** handle:
+
+* Flags: `+`, `#`, `0`, `-`, space
+* Field width
+* Precision
+* Length modifiers (`l`, `h`, etc.)
+* All the advanced behaviors of the full standard `printf`
+
+Behavior may therefore differ from the standard `printf` for unsupported or undefined cases.  
+Only the specified and implemented conversion specifiers are guaranteed.
+
+---
+
+## 👥 Authors
+
+* Antoine Gousset – GitHub: [Antgst](https://github.com/Antgst)  
+* Djibril Niang – GitHub: [Tamsir-ui](https://github.com/Tamsir-ui)
