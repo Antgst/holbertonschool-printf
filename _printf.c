@@ -1,17 +1,10 @@
 #include "main.h"
 
 /**
-<<<<<<< HEAD
  * _printf - replicates the behavior of printf
  * @format: string containing text and format specifiers
  * 
  *Return: pointer to the corresponding function, or NULL if not found
-=======
- * get_print_func - selects the correct function to handle a specifier
- * @c: the format specifier character (c, s, d, i, b...)
- *
- * Return: pointer to the corresponding function, or NULL if not found
->>>>>>> 4908b9c013dfd82f792da9db5770d66143224e1e
  */
 
 int _printf(const char *format, ... )
@@ -54,8 +47,4 @@ int _printf(const char *format, ... )
     }
     va_end(args);
     return (count);
-<<<<<<< HEAD
-=======
-
->>>>>>> 4908b9c013dfd82f792da9db5770d66143224e1e
 }
