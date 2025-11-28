@@ -25,7 +25,7 @@
 | `%c`        | Prints a single character            |
 | `%s`        | Prints a string                      |
 | `%d` / `%i` | Prints a signed integer in base 10   |
-| '%%'        | Prints '%'                           |
+| '%%'        | Prints  percent '%'                  |
 ```
 
 
@@ -122,10 +122,7 @@ Run the program:
 
 ✅ Usage Example
 ```
-        _printf("Hello %s, number %d in binary is %b\n", "world", 5, 5);
-
-        # Output:
-        Hello world, number 5 in binary is 101
+       
 ```
 
 Return value:
@@ -166,7 +163,7 @@ Returns -1 on error.
 
 **Supported Specifiers**
 
-%c, %s, %d, %i ...
+%c, %s, %d, %i, %
 
 ## Authors
 
