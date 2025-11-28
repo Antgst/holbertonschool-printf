@@ -176,4 +176,3 @@ Antoine Gousset :
 Djibril Niang :
 [Markdown Live Preview](https://markdownlivepreview.com/).
 
-
