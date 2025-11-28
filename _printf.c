@@ -1,23 +1,22 @@
 #include "main.h"
 
 /**
- 
-get_print_func - selects the correct function to handle a specifier
-@c: the format specifier character (c, s, d, i, b...)*
-Return: pointer to the corresponding function, or NULL if not found*/
-
-int _printf(const char *format, ... )
+ * _printf - produces output according to a format
+ * @format: format string containing conversion specifiers
+ *
+ * Return: number of chars printed, or -1 on error
+ */
+int _printf(const char *format, ...)
 {
     va_list args;
     int i = 0, j, count = 0;
 
-    spec_t types[] =
-    {
-        {'c', print_char}, 
+    spec_t types[] = {
+        {'c', print_char},
         {'s', print_string},
         {'d', print_int},
-        {'%', print_percent},
         {'i', print_int},
+        {'%', print_percent},
         {'\0', NULL}
     };
 
@@ -25,21 +24,47 @@ int _printf(const char *format, ... )
         return (-1);
 
     va_start(args, format);
-    for (i = 0; format[i] != '\0'; i++)
+
+    while (format[i] != '\0')
     {
-        if(format[i] == '%')
+        if (format[i] == '%')
+        {
             i++;
-            
-            /** 
-             * pour suite faire la fonction qui appelle chaque caractère (entre i++ et else)
-            */
 
+            /* '%' suivi de rien → erreur */
+            if (format[i] == '\0')
+            {
+                va_end(args);
+                return (-1);
+            }
 
+            /* On cherche le bon specifier */
+            for (j = 0; types[j].c != '\0'; j++)
+            {
+                if (types[j].c == format[i])
+                {
+                    count += types[j].f(args);
+                    break;
+                }
+            }
+
+            /* Specifier inconnu → impression brute */
+            if (types[j].c == '\0')
+            {
+                _putchar('%');
+                _putchar(format[i]);
+                count += 2;
+            }
+        }
         else
+        {
             _putchar(format[i]);
             count++;
+        }
+
+        i++;
     }
+
     va_end(args);
     return (count);
-
 }
