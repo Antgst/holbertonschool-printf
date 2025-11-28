@@ -25,21 +25,20 @@
 | `%c`        | Prints a single character            |
 | `%s`        | Prints a string                      |
 | `%d` / `%i` | Prints a signed integer in base 10   |
-| `%b`        | Prints an unsigned integer in binary |
+| '%%'        | Prints '%'                           |
 ```
 
 
 ## 
 **📁 Project Structure**
-### ordered
+### unordered
 
 * main.h
 * _putchar.c
 * print_char.c
 * print_string.c
 * print_int.c
-* print_binary.c
-* get_print_func.c
+* print_percent
 * _printf.c
 * man_3_printf
 
@@ -59,15 +58,7 @@
 
 * Returns the total printed character count
 
-✅ get_print_func.c
-
-* Contains a structure mapping specifiers to functions
-
-* Acts as a dispatcher
-
-* Makes future extensions easier
-
-✅ print_char.c
+#### ✅ print_char.c
 
 * Retrieves a character from va_list
 
@@ -75,13 +66,13 @@
 
 * Returns 1
 
-✅ print_string.c
+#### ✅ print_string.c
 
 * Prints a string character by character
 
 * Handles NULL by printing (null)
 
-✅ print_int.c
+#### ✅ print_int.c
 
 * Converts a signed integer to decimal text
 
@@ -89,13 +80,13 @@
 
 * Prints digits one by one
 
-✅ print_binary.c
+#### ✅ print_percent.c
 
-* Converts an unsigned integer to binary
+*
 
-* Prints the binary result without using printf
+*
 
-✅ _putchar.c
+#### ✅ _putchar.c
 
 * Wrapper around the write system call
 
@@ -103,13 +94,13 @@
 
 * Used by all print handlers
 
-✅ main.h
+#### ✅ main.h
 
 * Contains all prototypes, includes, and data structures
 
 * Central header for the entire project
 
-✅ man_3_printf
+#### ✅ man_3_printf
 
 * Manual page for the function
 
@@ -119,7 +110,7 @@
 
 To compile all source files:
 
-        gcc -Wall -Wextra -Werror -pedantic *.c -o printf
+        $ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 -Wno-format *.c
 
 
 ✔ Follows Holberton requirements \
@@ -145,15 +136,11 @@ Return value:
 
 * OS: Ubuntu 20.04 LTS
 
-* Compiler:  gcc
+* Compiler:  $ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 -Wno-format *.c
 
-* Standard: ISO C90
+* Allowed: va_args
 
-* Forbidden: printf, puts, sprintf, etc.
-
-* Allowed: write
-
-* Code must be modular and readable
+* Code must be readable and understandable by the peers
 
 ## 📖 Man Page Summary
 
@@ -179,10 +166,14 @@ Returns -1 on error.
 
 **Supported Specifiers**
 
-%c, %s, %d, %i, %b
+%c, %s, %d, %i ...
 
 ## Authors
 
-You may be using [Markdown Live Preview](https://markdownlivepreview.com/).
+Antoine Gousset : 
+[Markdown Live Preview](https://markdownlivepreview.com/).
+
+Djibril Niang :
+[Markdown Live Preview](https://markdownlivepreview.com/).
 
 
