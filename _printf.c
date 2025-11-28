@@ -1,10 +1,11 @@
 #include "main.h"
 
 /**
- 
-get_print_func - selects the correct function to handle a specifier
-@c: the format specifier character (c, s, d, i, b...)*
-Return: pointer to the corresponding function, or NULL if not found*/
+ * get_print_func - selects the correct function to handle a specifier
+ * @c: the format specifier character (c, s, d, i, b...)
+ *
+ * Return: pointer to the corresponding function, or NULL if not found
+ */
 
 int _printf(const char *format, ... )
 {
@@ -13,11 +14,11 @@ int _printf(const char *format, ... )
 
     spec_t types[] =
     {
-        {'c', print_char}, 
+        {'c', print_char},
         {'s', print_string},
         {'d', print_int},
         {'%', print_percent},
-        {'i', print_int},
+		{'i', print_int},
         {'\0', NULL}
     };
 
