@@ -33,14 +33,15 @@
 **📁 Project Structure**
 ### unordered
 
-* main.h
-* _putchar.c
-* print_char.c
-* print_string.c
-* print_int.c
-* print_percent
 * _printf.c
-* man_3_printf
+* _putchar.c
+* main.h
+* man_3_printf.3
+* print_char.c
+* print_int.c
+* _print_percent.c
+* _print_string.c
+* README.md
 
 ## Flowchart project
 
@@ -82,9 +83,9 @@
 
 #### ✅ print_percent.c
 
-*
+* A direct call to _putchar('%') to print the character to standard output.
 
-*
+* Puts '%' sign before character or int 
 
 #### ✅ _putchar.c
 
@@ -118,16 +119,30 @@ To compile all source files:
 
 Run the program:
 
-        ./printf
+        ./a.out
 
 ✅ Usage Example
 ```
-       
+#include "main.h"
+
+int main(void)
+{
+    _printf("Display a percent sign: %%\n");
+    _printf("Success rate: 100%% guaranteed!\n");
+
+    return (0);
+}
+
+output:
+
+Display a percent sign: %
+Success rate: 100% guaranteed!
+  
 ```
 
 Return value:
 
-* Total number of characters printed
+* display a percent '%' sign on the sentence: 100% guaranteed!
 
 ## 🧰 Requirements
 
