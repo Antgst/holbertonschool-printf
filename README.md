@@ -232,7 +232,7 @@ A high-level flowchart describes the internal logic of `_printf`:
 
 If the flowchart is stored as an image, it can be referenced in the README:
 
-    ![Printf flowchart](docs/flowchart.png "High-level _printf flowchart")
+    ![Printf flowchart](docs/flowchart.png)
 
 ---
 
@@ -311,3 +311,4 @@ Only the specified and implemented conversion specifiers are guaranteed.
 
 * Antoine Gousset – GitHub: [Antgst](https://github.com/Antgst)  
 * Djibril Niang – GitHub: [Tamsir-ui](https://github.com/Tamsir-ui)
+
