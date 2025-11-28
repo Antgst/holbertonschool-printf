@@ -1,10 +1,11 @@
 #include "main.h"
 
 /**
- 
-get_print_func - selects the correct function to handle a specifier
-@c: the format specifier character (c, s, d, i, b...)*
-Return: pointer to the corresponding function, or NULL if not found*/
+ * _printf - replicates the behavior of printf
+ * @format: string containing text and format specifiers
+ * 
+ *Return: pointer to the corresponding function, or NULL if not found
+ */
 
 int _printf(const char *format, ... )
 {
@@ -28,18 +29,22 @@ int _printf(const char *format, ... )
     for (i = 0; format[i] != '\0'; i++)
     {
         if(format[i] == '%')
+        {    
             i++;
-            
-            /** 
-             * pour suite faire la fonction qui appelle chaque caractère (entre i++ et else)
-            */
-
-
+            for(j = 0; types[j].spec != '\0'; j++)
+            {
+                if(types[j].spec == format[i])
+                {
+                    count += types[j].f(args);
+                    break;
+                }
+            }
+            if (types[j].spec == '\0')
+                count += _putchar('%') + _putchar(format[i]);
+        }
         else
-            _putchar(format[i]);
-            count++;
+            count += _putchar(format[i]);
     }
     va_end(args);
     return (count);
-
 }

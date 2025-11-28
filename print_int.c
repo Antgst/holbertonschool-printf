@@ -15,14 +15,19 @@ int print_int(va_list args)
 	integer = va_arg(args, int);
 	if (integer < 0)
 	{
-		_putchar("-");
+		_putchar('-');
 		number = -integer;
+		count = 1;
+	}
+	else
+	{
+		number = integer;
 		count = 1;
 	}
 
 	if (integer == 0)
 	{
-		_putchar("0");
+		_putchar('0');
 		count = 1;
 	}
 	else
@@ -43,7 +48,7 @@ int print_int_recursive(unsigned int number)
 		return (0);
 	else
 	{
-		count += print_int_recursive(number / 10);
+		count = print_int_recursive(number / 10);
 		_putchar((number % 10) + '0');
 		return (count + 1);
 	}
