@@ -160,10 +160,11 @@ Returns -1 on error.
 ## Authors
 
 Antoine Gousset : 
-[Markdown Live Preview]((https://github.com/Antgst)/).
+[Markdown Live Preview](https://github.com/Antgst/).
 
 Djibril Niang :
 [Markdown Live Preview](https://markdownlivepreview.com/).
+
 
 
 
