@@ -13,6 +13,7 @@ int print_int(va_list args)
 	unsigned int number;
 
 	integer = va_arg(args, int);
+
 	if (integer < 0)
 	{
 		_putchar('-');
@@ -36,10 +37,14 @@ int print_int(va_list args)
 	}
 	return (count);
 }
+
 /** 
- * 
- * 
+ * print_int_recursive - Print an unsigned integer recursively
+ * @n: the unsigned integer to print
+ *
+ * Return: The number of characters printed
 */
+
 int print_int_recursive(unsigned int number)
 {
 	int count;
