@@ -1,11 +1,12 @@
 #include "main.h"
 
 /**
- * print_int - Affiche un entier signé
- * @args: va_list contenant l'entier à afficher
+ * print_int - prints an integer
+ * @args: list of arguments from which to get the integer
  *
- * Return: Nombre de caractères imprimés
+ * Return: number of characters printed
  */
+ 
 int print_int(va_list args)
 {
 	int count = 0;
