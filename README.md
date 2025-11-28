@@ -200,7 +200,7 @@ Example structure:
 | `_printf.c`          | Core `_printf` function, parser, and dispatcher            |
 | `_putchar.c`         | Low-level function used by `_printf` and other printing functions  |
 | `main.h`             | Header file with prototypes, macros, and typedefs          |
-| `man_3_printf`       | Custom man page for `_printf`                              |
+| `man_3_printf.3`       | Custom man page for `_printf`                              |
 | `print_char.c`       | Handler for `%c`                                           |
 | `print_int.c`        | Handler for `%d` / `%i`                                    |
 | `print_percent.c`    | Handler for `%%` (prints a literal `%` character)                                            |
@@ -309,5 +309,6 @@ Only the specified and implemented conversion specifiers are guaranteed.
 
 * Antoine Gousset – GitHub: [Antgst](https://github.com/Antgst)  
 * Djibril Niang – GitHub: [Tamsir-ui](https://github.com/Tamsir-ui)
+
 
 
