@@ -1,6 +1,6 @@
 # ✅ _printf Project — Holberton School
 
-**📌 Description**
+**📌 DESCRIPTION**
 
 * The _printf project aims to recreate a simplified version of the standard C library function printf.*
 * The goals of this project are to practice:*
@@ -164,6 +164,7 @@ Antoine Gousset :
 
 Djibril Niang :
 [GITHUB](https://github.com/Tamsir-ui).
+
 
 
 
