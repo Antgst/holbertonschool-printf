@@ -8,7 +8,7 @@
  */
 int print_int(va_list args)
 {
-	int count;
+	int count = 0;
 	int integer;
 	unsigned int number;
 
@@ -17,19 +17,18 @@ int print_int(va_list args)
 	if (integer < 0)
 	{
 		_putchar('-');
+		count++;
 		number = -integer;
-		count = 1;
 	}
 	else
 	{
 		number = integer;
-		count = 1;
 	}
 
 	if (integer == 0)
 	{
 		_putchar('0');
-		count = 1;
+		count++;
 	}
 	else
 	{
