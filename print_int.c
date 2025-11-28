@@ -1,10 +1,10 @@
 #include "main.h"
 
 /**
- * print_int - prints an integer
- * @args: list of arguments from which to get the integer
+ * print_int - Print a signed int
+ * @args: va_list contain the integer to print
  *
- * Return: number of characters printed
+ * Return: The number of character printed
  */
  
 int print_int(va_list args)
