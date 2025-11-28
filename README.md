@@ -2,21 +2,21 @@
 
 **📌 Description**
 
-*The _printf project aims to recreate a simplified version of the standard C library function printf.*
+* The _printf project aims to recreate a simplified version of the standard C library function printf.*
 
-*The goals of this project are to practice:*
+* The goals of this project are to practice:*
 
-*Handling strings and formatted output*
+* Handling strings and formatted output*
 
-*Using variadic functions (va_list)*
+* Using variadic functions (va_list)*
 
-*Modular program design in C*
+* Modular program design in C*
 
-*Clean architecture and documentation*
+* Clean architecture and documentation*
 
-*Teamwork and Git versioning*
+* Teamwork and Git versioning*
 
-*This implementation supports multiple format, each handled by a dedicated function.*
+* This implementation supports multiple format, each handled by a dedicated function.*
 
 **🏗️ Supported Format Specifiers**  
 ```
@@ -187,4 +187,5 @@ Antoine Gousset :
 
 Djibril Niang :
 [Markdown Live Preview](https://markdownlivepreview.com/).
+
 
