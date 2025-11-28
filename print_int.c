@@ -1,15 +1,22 @@
 #include "main.h"
 
 /**
+<<<<<<< HEAD
  * print_int - Print a signed int
  * @args: va_list contain the integer to print
  *
  * Return: The number of character printed
+=======
+ * print_int - prints an integer
+ * @args: list of arguments from which to get the integer
+ *
+ * Return: number of characters printed
+>>>>>>> main
  */
  
 int print_int(va_list args)
 {
-	int count;
+	int count = 0;
 	int integer;
 	unsigned int number;
 
@@ -17,15 +24,19 @@ int print_int(va_list args)
 
 	if (integer < 0)
 	{
-		_putchar("-");
+		_putchar('-');
+		count++;
 		number = -integer;
-		count = 1;
+	}
+	else
+	{
+		number = integer;
 	}
 
 	if (integer == 0)
 	{
-		_putchar("0");
-		count = 1;
+		_putchar('0');
+		count++;
 	}
 	else
 	{
@@ -49,7 +60,7 @@ int print_int_recursive(unsigned int number)
 		return (0);
 	else
 	{
-		count += print_int_recursive(number / 10);
+		count = print_int_recursive(number / 10);
 		_putchar((number % 10) + '0');
 		return (count + 1);
 	}
