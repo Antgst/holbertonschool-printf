@@ -1,22 +1,15 @@
 # ✅ _printf Project — Holberton School
 
-**📌 Description**
+**📌 DESCRIPTION**
 
-*The _printf project aims to recreate a simplified version of the standard C library function printf.*
-
-*The goals of this project are to practice:*
-
-*Handling strings and formatted output*
-
-*Using variadic functions (va_list)*
-
-*Modular program design in C*
-
-*Clean architecture and documentation*
-
-*Teamwork and Git versioning*
-
-*This implementation supports multiple format, each handled by a dedicated function.*
+* The _printf project aims to recreate a simplified version of the standard C library function printf.*
+* The goals of this project are to practice:*
+* Handling strings and formatted output*
+* Using variadic functions (va_list)*
+* Modular program design in C*
+* Clean architecture and documentation*
+* Teamwork and Git versioning*
+* This implementation supports multiple format, each handled by a dedicated function.*
 
 **🏗️ Supported Format Specifiers**  
 ```
@@ -25,7 +18,7 @@
 | `%c`        | Prints a single character            |
 | `%s`        | Prints a string                      |
 | `%d` / `%i` | Prints a signed integer in base 10   |
-| '%%'        | Prints  percent '%'                  |
+| '%%'        | Prints percent '%'                   |
 ```
 
 
@@ -33,14 +26,16 @@
 **📁 Project Structure**
 ### unordered
 
+* docs/
 * _printf.c
 * _putchar.c
 * main.h
 * man_3_printf.3
 * print_char.c
 * print_int.c
-* _print_percent.c
-* _print_string.c
+* print_percent.c
+* print_string.c
+* .gitignore
 * README.md
 
 ## Flowchart project
@@ -54,57 +49,45 @@
 * Main entry point 
 * Iterates through the format string
 * Detects % characters
-
 * Calls the appropriate function
-
 * Returns the total printed character count
 
 #### ✅ print_char.c
 
 * Retrieves a character from va_list
-
 * Prints it using _putchar
-
 * Returns 1
 
 #### ✅ print_string.c
 
 * Prints a string character by character
-
 * Handles NULL by printing (null)
 
 #### ✅ print_int.c
 
 * Converts a signed integer to decimal text
-
 * Handles negative values
-
 * Prints digits one by one
 
 #### ✅ print_percent.c
 
 * A direct call to _putchar('%') to print the character to standard output.
-
-* Puts '%' sign before character or int 
+* Puts '%' sign before character or int
 
 #### ✅ _putchar.c
 
 * Wrapper around the write system call
-
 * Prints a single character
-
 * Used by all print handlers
 
 #### ✅ main.h
 
 * Contains all prototypes, includes, and data structures
-
 * Central header for the entire project
 
-#### ✅ man_3_printf
+#### ✅ man_3_printf.3
 
-* Manual page for the function
-
+* Manual page for the custom function _printf
 * Describes usage, behavior, and supported formats
 
 ## ⚙️ Compilation
@@ -147,11 +130,8 @@ Return value:
 ## 🧰 Requirements
 
 * OS: Ubuntu 20.04 LTS
-
 * Compiler:  $ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 -Wno-format *.c
-
 * Allowed: va_args
-
 * Code must be readable and understandable by the peers
 
 ## 📖 Man Page Summary
@@ -169,11 +149,8 @@ Return value:
 **Description**
 
 Prints formatted output based on the supported format specifiers.
-
 Return Value
-
 Returns the number of printed characters.
-
 Returns -1 on error.
 
 **Supported Specifiers**
@@ -183,8 +160,15 @@ Returns -1 on error.
 ## Authors
 
 Antoine Gousset : 
-[Markdown Live Preview](https://markdownlivepreview.com/).
+[GITHUB](https://github.com/Antgst/).
 
 Djibril Niang :
-[Markdown Live Preview](https://markdownlivepreview.com/).
+[GITHUB](https://github.com/Tamsir-ui).
+
+
+
+
+
+
+
 
